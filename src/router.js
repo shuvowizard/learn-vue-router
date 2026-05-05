@@ -4,12 +4,14 @@ import HomePage from './components/HomePage.vue'
 import AboutPage from './components/AboutPage.vue'
 import Helloworld from './components/HelloWorld.vue'
 import ProductsPage from './components/ProductsPage.vue'
+import ProductPreviewPage from './components/ProductPreviewPage.vue'
 
 const routes = [
     {path: '/', component: HomePage},
     { path: '/about', component: AboutPage },
     { path: '/helloworld', component: Helloworld },
     { path: '/products', component: ProductsPage },
+    { path: '/product-preview/:slug', component: ProductPreviewPage },
 ]
 
 export const router = createRouter({
