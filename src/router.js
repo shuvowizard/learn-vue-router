@@ -5,6 +5,7 @@ import AboutPage from './components/AboutPage.vue'
 import Helloworld from './components/HelloWorld.vue'
 import ProductsPage from './components/ProductsPage.vue'
 import ProductPreviewPage from './components/ProductPreviewPage.vue'
+import NotFoundPage from './components/NotFoundPage.vue'
 
 const routes = [
     {path: '/', component: HomePage},
@@ -12,6 +13,7 @@ const routes = [
     { path: '/helloworld', component: Helloworld },
     { path: '/products', component: ProductsPage },
     { path: '/product-preview/:slug', component: ProductPreviewPage },
+    { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFoundPage },
 ]
 
 export const router = createRouter({

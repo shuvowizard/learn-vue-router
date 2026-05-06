@@ -1,10 +1,18 @@
 <script setup>
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import products from '../../constants/data.js'
 
 const route = useRoute()
+const router = useRouter()
 
 const product = products.find(p => p.slug === route.params.slug)
+
+// if (!product) {
+//   router.push({
+//     name: 'NotFound'
+//   })
+// }
+
 </script>
 
 <template>
@@ -17,5 +25,9 @@ const product = products.find(p => p.slug === route.params.slug)
     <h3>Price: ${{ product.price }}</h3>
   </div>
 
-  <p v-else>Product not found</p>
+  <div v-else class="fallback">
+    <h2>❌ Product not found!</h2>
+    <p>Redirecting in 2 seconds...</p>
+    <router-link to="/">🏠 Go Home</router-link>
+  </div>
 </template>
