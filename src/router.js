@@ -8,15 +8,25 @@ import ProductPreviewPage from './components/ProductPreviewPage.vue'
 import NotFoundPage from './components/NotFoundPage.vue'
 
 const routes = [
-    {path: '/', component: HomePage},
-    { path: '/about', component: AboutPage },
-    { path: '/helloworld', component: Helloworld },
-    { path: '/products', component: ProductsPage },
-    { path: '/product-preview/:slug', component: ProductPreviewPage },
-    { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFoundPage },
+  { path: '/', component: HomePage },
+  { path: '/about', component: AboutPage },
+  { path: '/helloworld', component: Helloworld },
+  { path: '/products', component: ProductsPage },
+  { path: '/product-preview/:slug', component: ProductPreviewPage },
+  { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFoundPage },
 ]
 
 export const router = createRouter({
   history: createWebHistory(),
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (to.hash) {
+      return {
+        top: 0,
+        el: to.hash,
+        behavior: 'smooth',
+      }
+    }
+    return { top: 0 }
+  },
 })
